@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2016 at 03:18 AM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 7.0.9
+-- Generation Time: Apr 11, 2024 at 06:56 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 7.3.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `danhom5`
 --
+CREATE DATABASE IF NOT EXISTS `danhom5` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `danhom5`;
 
 -- --------------------------------------------------------
 
@@ -32,18 +35,25 @@ CREATE TABLE `cart` (
   `ChiTiet` longtext COLLATE utf8_unicode_ci NOT NULL,
   `GiaTien` int(11) NOT NULL,
   `TrangThai` text COLLATE utf8_unicode_ci NOT NULL,
-  `ThoiGian` longtext COLLATE utf8_unicode_ci NOT NULL
+  `ThoiGian` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `shipping_address` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `Phone` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `cart`
 --
 
-INSERT INTO `cart` (`IdCart`, `IdUser`, `ChiTiet`, `GiaTien`, `TrangThai`, `ThoiGian`) VALUES
-(10, 7, '\r\n								Mã sản phẩm: 35 - Số lượng: 1</br>								', 0, 'Đã thanh toán', ''),
-(11, 4, '2016/12/07-03:02:53am', 25, 'Chưa thanh toán', '2016/12/07-03:02:53am'),
-(12, 2, '2016/12/07-03:02:53am', 25, 'Đã thanh toán', '2016/12/07-03:02:53am'),
-(13, 7, '\r\n								Mã sản phẩm: 30 - Số lượng: 1</br>								', 0, 'Đã thanh toán', '');
+INSERT INTO `cart` (`IdCart`, `IdUser`, `ChiTiet`, `GiaTien`, `TrangThai`, `ThoiGian`, `shipping_address`, `Phone`) VALUES
+(75, 8, '\r\n								Mã sản phẩm: 17 - Số lượng: 1</br>								', 6790000, 'Chưa thanh toán', '10/04/24-08:18:58pm', '', 0),
+(76, 2, '\r\n								Mã sản phẩm: 2 - Số lượng: 1</br>Mã sản phẩm: 17 - Số lượng: 1</br>								', 14390000, 'Chưa thanh toán', '10/04/24-08:22:01pm', '', 0),
+(77, 2, '\r\n								Mã sản phẩm: 2 - Số lượng: 1</br>Mã sản phẩm: 17 - Số lượng: 1</br>								', 14390000, 'Chưa thanh toán', '10/04/24-08:22:43pm', '', 0),
+(78, 8, '\r\n								Mã sản phẩm: 3 - Số lượng: 16</br>Mã sản phẩm: 11 - Số lượng: 16</br>								', 231440000, 'Chưa thanh toán', '11/04/24-02:16:26pm', '', 0),
+(79, 8, '\r\n								Mã sản phẩm: 18 - Số lượng: 100</br>								', 1229000000, 'Chưa thanh toán', '11/04/24-04:16:41pm', '', 773343290),
+(80, 8, '\r\n								Mã sản phẩm: 18 - Số lượng: 100</br>								', 1229000000, 'Chưa thanh toán', '11/04/24-04:21:36pm', '', 773343290),
+(81, 8, '\r\n								Mã sản phẩm: 18 - Số lượng: 100</br>								', 1229000000, 'Chưa thanh toán', '11/04/24-04:24:11pm', '', 773343290),
+(82, 8, '\r\n								Mã sản phẩm: 18 - Số lượng: 100</br>								', 1229000000, 'Chưa thanh toán', '11/04/24-04:24:25pm', '', 123123123),
+(83, 8, '\r\n								Mã sản phẩm: 18 - Số lượng: 5</br>								', 61450000, 'Chưa thanh toán', '11/04/24-04:26:39pm', 'ascas', 0);
 
 -- --------------------------------------------------------
 
@@ -153,7 +163,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`IdUser`, `Username`, `Email`, `MatKhau`, `Loai`) VALUES
 (2, 'admin', 'admin', 'admin', 2),
 (4, '215125125', '123123@123', '125125', 1),
-(7, 'hth1831990', '123@123', '123123', 1);
+(7, 'hth1831990', '123@123', '123123', 1),
+(8, 'vinh', 'jinbao1994@gmail.com', '123', 1);
 
 --
 -- Indexes for dumped tables
@@ -191,22 +202,27 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `IdCart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `IdCart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+
 --
 -- AUTO_INCREMENT for table `nhomsp`
 --
 ALTER TABLE `nhomsp`
   MODIFY `IdNhomSP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `sanpham`
 --
 ALTER TABLE `sanpham`
   MODIFY `IdSP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `IdUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `IdUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
