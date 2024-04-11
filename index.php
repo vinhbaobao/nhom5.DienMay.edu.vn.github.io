@@ -65,7 +65,9 @@ if ($action == 'home') {
     $trangthai = 'Chưa thanh toán';
     $giatien = $_POST['giatien'];
     $date = $_POST['date'];
-    them_cart($userid, $chitiet, $giatien, $trangthai, $date);
+    $shipping_address =$_POST['$shipping_address'];
+    $Phone = $_POST['Phone'];
+    them_cart($userid, $chitiet, $giatien, $trangthai, $date,$shipping_address,$Phone);
     header("Location: test.php");
 }
 ?>

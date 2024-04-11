@@ -159,7 +159,9 @@ if ($action == 'ql_sp') {
     $trangthai = $_POST['trangthai'];
     $giatien = $_POST['giatien'];
     $date = $_POST['date'];
-    up_cart($userid, $chitiet, $giatien, $trangthai, $date, $cartid);
+    $Phone = $_POST['Phone'];
+    $shipping_address = $_POST['shipping_address'];
+    up_cart($userid, $chitiet, $giatien, $trangthai, $date, $cartid,$Phone,$shipping_address);
     header("Location: .?action=ql_cart");
 }
 ?>

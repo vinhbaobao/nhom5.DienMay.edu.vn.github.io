@@ -8,9 +8,9 @@ function get_cart() {
     return $result;
 }
 
-function them_cart($userid, $chitiet, $giatien, $trangthai, $date) {
+function them_cart($userid, $chitiet, $giatien, $trangthai, $date,$Phone,$shipping_address) {
     global $db;
-    $query = "INSERT INTO `cart` (`IdCart`, `IdUser`, `ChiTiet`, `GiaTien`, `TrangThai`, `ThoiGian`) VALUES (NULL, '$userid', '$chitiet', '$giatien', '$trangthai', '$date')";
+    $query = "INSERT INTO `cart` (`IdCart`, `IdUser`, `ChiTiet`, `GiaTien`, `TrangThai`, `ThoiGian`,`Phone`,`shipping_address`) VALUES (NULL, '$userid', '$chitiet', '$giatien', '$trangthai', '$date', '$Phone', '$shipping_address')";
     $db->exec($query);
 }
 function delete_cart($id) {
@@ -18,9 +18,9 @@ function delete_cart($id) {
     $query = "DELETE FROM cart WHERE IdCart = '$id'";
     $db->exec($query);
 }
-function up_cart($userid, $chitiet, $giatien, $trangthai, $date, $cartid){
+function up_cart($userid, $chitiet, $giatien, $trangthai, $date, $cartid,$Phone,$shipping_address){
     global $db;
-    $query = "UPDATE `cart` SET `IdUser` = '$userid', `ChiTiet` = '$chitiet', `GiaTien` = '$giatien', `TrangThai` = '$trangthai', `ThoiGian` = '$date' WHERE `cart`.`IdCart` = '$cartid'";
+    $query = "UPDATE `cart` SET `IdUser` = '$userid', `ChiTiet` = '$chitiet', `GiaTien` = '$giatien', `TrangThai` = '$trangthai', `ThoiGian` = '$date', `Phone` = '$Phone', `shipping_address` = '$shipping_address'  WHERE `cart`.`IdCart` = '$cartid'";
     $db->exec($query);
 }
 ?>

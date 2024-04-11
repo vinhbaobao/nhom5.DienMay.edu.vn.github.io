@@ -28,6 +28,8 @@ $recent_cart_data = get_recent_cart_data();
                 <th style="border: 1px solid #ddd; padding: 8px;">Price</th>
                 <th style="border: 1px solid #ddd; padding: 8px;">Status</th>
                 <th style="border: 1px solid #ddd; padding: 8px;">Date</th>
+                <th style="border: 1px solid #ddd; padding: 8px;">shipping_address</th>
+                <th style="border: 1px solid #ddd; padding: 8px;">Phone</th>
             </tr>
         </thead>
         <tbody>
@@ -37,6 +39,8 @@ $recent_cart_data = get_recent_cart_data();
                 <td style="border: 1px solid #ddd; padding: 8px;"><?php echo $recent_cart_data['GiaTien']; ?></td>
                 <td style="border: 1px solid #ddd; padding: 8px;"><?php echo $recent_cart_data['TrangThai']; ?></td>
                 <td style="border: 1px solid #ddd; padding: 8px;"><?php echo $recent_cart_data['ThoiGian']; ?></td>
+                <td style="border: 1px solid #ddd; padding: 8px;"><?php echo $recent_cart_data['shipping_address']; ?></td>
+                <td style="border: 1px solid #ddd; padding: 8px;"><?php echo $recent_cart_data['Phone']; ?></td>
             </tr>
         </tbody>
     </table>
