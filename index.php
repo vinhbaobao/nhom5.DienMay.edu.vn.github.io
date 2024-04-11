@@ -66,6 +66,6 @@ if ($action == 'home') {
     $giatien = $_POST['giatien'];
     $date = $_POST['date'];
     them_cart($userid, $chitiet, $giatien, $trangthai, $date);
-    header("Location: .?action=view_cart");
+    header("Location: test.php");
 }
 ?>
