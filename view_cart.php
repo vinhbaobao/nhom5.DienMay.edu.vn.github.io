@@ -1,3 +1,4 @@
+
 <?php include 'view/header.php';
 	if (isset($_POST['submit'])) {
     foreach ($_POST['qty'] as $key => $value) {
@@ -10,6 +11,52 @@
     header("Location: .?action=view_cart");
 }
  ?>
+ <style>
+    /* Style for form elements */
+    input[type="text"],
+    textarea,
+    select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="checkbox"] {
+        margin-right: 5px;
+    }
+
+    /* Style for the agree policy label */
+    label[for="agree_policy"] {
+        display: block;
+        margin-top: 15px;
+        font-style: italic;
+    }
+
+    /* Style for the submit button (not provided in the HTML snippet) */
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+</style>
+
 	<content>
 		<div class="container">
 			<form method="post">
@@ -66,6 +113,8 @@
 								<p style="color:#3EC37D;font-size:16px;"><?php echo number_format($total); ?> VNĐ</p>
 								<input type="submit" name="submit" value="Cập nhập giỏ hàng">
 							</form>
+
+							
 							<form method="post" style="margin-top:20px;">
 								<input type="hidden" name="action" value="thanhtoan">
 								<input type="hidden" name="userid" value="<?php	$username = $_SESSION['Username'];$username = get_id_user($username); echo $username;?>">
@@ -81,6 +130,24 @@
 								">
 								<input type="hidden" name="giatien" value="<?php echo $total;?>">
 								<input type="hidden" name="date" value="<?php echo date("d/m/y-h:i:sa");?>">
+								<label for="shipping_address">Shipping Address:</label>
+    <input type="text" name="shipping_address" id="shipping_address">
+	<label for="Phone">Phone:</label>
+	<input type="text" name="Phone" id="Phone">
+
+    <label for="order_note">Order Note:</label>
+    <textarea name="order_note" id="order_note"></textarea>
+	
+    <label for="payment_method">Payment Method:</label>
+    <select name="payment_method" id="payment_method">
+        <option value="Bank Transfer">Bank Transfer</option>
+        <!-- Add more payment methods if needed -->
+    </select>
+
+    <label>
+        <input type="checkbox" name="agree_policy" required>
+        I have read and agree to the store's policy.
+    </label>
 								<input type="submit" value="Đặt hàng">
 							</form>
 							</div>
